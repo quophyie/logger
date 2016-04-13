@@ -2,7 +2,7 @@
 'use strict'
 
 var logger = require('../../index')
-var fs = require('fs');
+var fs = require('fs')
 
 var CONFIG = {
   transports: {
@@ -18,9 +18,7 @@ var CONFIG = {
   }
 }
 
-
 describe('Test Logger Methods', function () {
-
   before(function (done) {
     fs.openSync('logger.log', 'w')
 
@@ -31,15 +29,15 @@ describe('Test Logger Methods', function () {
 
   logger.init(CONFIG)
 
-  it('- test info method', function(done) {
+  it('- test info method', function (done) {
     logger.debug('test')
     done()
   })
-  it('- test info method', function(done) {
+  it('- test info method', function (done) {
     logger.error('test')
     done()
   })
-  it('- test info method', function(done) {
+  it('- test info method', function (done) {
     logger.info('test')
     done()
   })
@@ -48,5 +46,4 @@ describe('Test Logger Methods', function () {
     fs.unlinkSync('logger.log')
     done()
   })
-
 })

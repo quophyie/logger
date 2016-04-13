@@ -1,14 +1,9 @@
 'use strict'
 
-var winston = require('winston');
-var syslog = require('winston-syslog').Syslog
-
 var base = require('./lib/base')
 var logger = require('./lib/logger')
 
-
 module.exports.init = function (config) {
-
   if (config && !config.transports) {
     throw new Error('Logger: No logging transports supplied')
   }
@@ -30,7 +25,6 @@ module.exports.init = function (config) {
   this._crit = logger.crit(critTransports)
   this._alert = logger.alert(alertTransports)
   this._emerg = logger.emerg(emergTransports)
-
 }
 
 module.exports.debug = function (msg) {
