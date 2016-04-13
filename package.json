@@ -3,17 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "4.3.1"
+  },
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "coverage": "istanbul cover _mocha --print both && istanbul check-coverage",
+    "standard": "standard --verbose",
     "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/c8management/logger.git"
   },
-  "author": "",
+  "keywords": [
+    "log",
+    "logger",
+    "winston",
+    "logging"
+  ],
+  "author": "C8Management",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/c8management/logger/issues"
@@ -21,7 +32,9 @@
   "homepage": "https://github.com/c8management/logger#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.4.5"
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5",
+    "standard": "^6.0.8"
   },
   "dependencies": {
     "winston": "^2.2.0",
