@@ -1,6 +1,6 @@
 'use strict'
 
-var base = require('./lib/base')
+var base = require('./lib/transporter')
 var logger = require('./lib/logger')
 
 module.exports.init = function (config) {
