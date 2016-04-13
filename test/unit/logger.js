@@ -14,6 +14,9 @@ var CONFIG = {
       options: {
         filename: 'log.log'
       }
+    },
+    syslog: {
+      level: ['error', 'debug', 'warning']
     }
   }
 }
@@ -21,9 +24,7 @@ var CONFIG = {
 describe('Test Logger Methods', function () {
   before(function (done) {
     fs.openSync('logger.log', 'w')
-
     logger.init(CONFIG)
-
     done()
   })
 
