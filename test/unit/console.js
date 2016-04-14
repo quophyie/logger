@@ -1,11 +1,6 @@
 /* eslint-env mocha */
 'use strict'
 
-var expect = require('chai').expect
-var assert = require('chai').assert
-var fs = require('fs')
-
-
 var logger = require('../../index')
 
 var CONFIG = {
@@ -15,22 +10,12 @@ var CONFIG = {
       options: {
         silent: true
       }
-    },
-    file: {
-      level: ['warning', 'error'],
-      options: {
-        filename: 'log.log'
-      }
-    },
-    syslog: {
-      level: ['crit', 'alert', 'emerg']
     }
   }
 }
 
-describe('Test Console Logger Methods', function () {
+describe('Test Console Logger', function () {
   before(function (done) {
-    fs.openSync('logger.log', 'w')
     logger.init(CONFIG)
     done()
   })
@@ -69,7 +54,6 @@ describe('Test Console Logger Methods', function () {
   })
 
   after(function (done) {
-    fs.unlinkSync('logger.log')
     done()
   })
 })
