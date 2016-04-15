@@ -33,6 +33,7 @@ describe('Test File Logger', function () {
     logger.debug('debug')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
+      expect(data).to.exist()
       data = JSON.parse(data)
       expect(err).to.not.exist()
       expect(data).to.deep.include({level: 'debug', message: 'debug'})
@@ -43,6 +44,7 @@ describe('Test File Logger', function () {
     logger.info('info')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
+      expect(data).to.exist()
       data = JSON.parse(data)
       expect(err).to.not.exist()
       expect(data).to.deep.include({level: 'info', message: 'info'})
@@ -53,6 +55,7 @@ describe('Test File Logger', function () {
     logger.notice('notice')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
+      expect(data).to.exist()
       data = JSON.parse(data)
       expect(err).to.not.exist()
       expect(data).to.deep.include({level: 'notice', message: 'notice'})
@@ -63,6 +66,7 @@ describe('Test File Logger', function () {
     logger.warning('warning')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
+      expect(data).to.exist()
       data = JSON.parse(data)
       expect(err).to.not.exist()
       expect(data).to.deep.include({level: 'warning', message: 'warning'})
@@ -73,6 +77,7 @@ describe('Test File Logger', function () {
     logger.error('error')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
+      expect(data).to.exist()
       data = JSON.parse(data)
       expect(err).to.not.exist()
       expect(data).to.deep.include({level: 'error', message: 'error'})
@@ -83,6 +88,7 @@ describe('Test File Logger', function () {
     logger.crit('crit')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
+      expect(data).to.exist()
       data = JSON.parse(data)
       expect(err).to.not.exist()
       expect(data).to.deep.include({level: 'crit', message: 'crit'})
@@ -93,6 +99,7 @@ describe('Test File Logger', function () {
     logger.alert('alert')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
+      expect(data).to.exist()
       data = JSON.parse(data)
       expect(err).to.not.exist()
       expect(data).to.deep.include({level: 'alert', message: 'alert'})
@@ -103,6 +110,7 @@ describe('Test File Logger', function () {
     logger.emerg('emerg')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
+      expect(data).to.exist()
       data = JSON.parse(data)
       expect(err).to.not.exist()
       expect(data).to.deep.include({level: 'emerg', message: 'emerg'})
