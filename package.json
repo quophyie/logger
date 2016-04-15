@@ -32,9 +32,11 @@
   "homepage": "https://github.com/c8management/logger#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "code": "^2.2.0",
     "istanbul": "^0.4.3",
     "mocha": "^2.4.5",
-    "standard": "^6.0.8"
+    "standard": "^6.0.8",
+    "test-console": "^1.0.0"
   },
   "dependencies": {
     "winston": "^2.2.0",
