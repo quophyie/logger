@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 'use strict'
 
-process.title = 'fnord';
+process.title = 'fnord'
 
 var fs = require('fs')
 var path = require('path')
