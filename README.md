@@ -1,15 +1,15 @@
-# C8-Logger
+# Logger
 
 Easy to use (config-based) wrapper around winston logger
 
-# Available Transports
+## Available Transports
 
  - Console
  - File
  - SysLog (currently on hold)
- 
- 
-# Available log levels
+
+
+## Available log levels
 
  - `7` -> `debug`
  - `6` -> `info`
@@ -19,8 +19,11 @@ Easy to use (config-based) wrapper around winston logger
  - `2` -> `crit`
  - `1` -> `alert`
  - `0` -> `emerg`
- 
-# Usage
+
+## Installation
+`npm i @c8/logger`
+
+## Usage
 
 ```javascript
 
@@ -52,14 +55,14 @@ logger.debug('This is the debug message')
 Console logger options: [`console.options`](https://github.com/winstonjs/winston/blob/master/docs/transports.md#console-transport)
 File logger options: [`file.options`](https://github.com/winstonjs/winston/blob/master/docs/transports.md#file-transport)
 
-# Tests
+## Tests
 
 Run the following commands:
  - `npm run test` for unit tests
  - `npm run standard` for StandardJS compiling
  - `npm run coverage` for code coverage
-  
-# Licence
+
+## Licence
 
 MIT Licence
 © Copyright 2016 C8 MANAGEMENT LIMITED
