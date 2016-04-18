@@ -24,32 +24,44 @@ describe('Test Console Logger', function () {
     logger.debug('debug')
     done()
   })
+
   it('- test info method', function (done) {
     logger.info('info')
     done()
   })
+
   it('- test notice method', function (done) {
     logger.notice('notice')
     done()
   })
+
   it('- test warning method', function (done) {
     logger.warning('warning')
     done()
   })
+
   it('- test error method', function (done) {
     logger.error('error')
     done()
   })
+
   it('- test crit method', function (done) {
     logger.crit('crit')
     done()
   })
+
   it('- test alert method', function (done) {
     logger.alert('alert')
     done()
   })
+
   it('- test emerg method', function (done) {
     logger.emerg('emerg')
+    done()
+  })
+
+  it('- test emerg method', function (done) {
+    logger.log('emerg', 'log.emerg')
     done()
   })
 
