@@ -1,11 +1,13 @@
 /* eslint-env mocha */
 'use strict'
 
+process.title = 'fnord';
+
 var fs = require('fs')
 var path = require('path')
 var logger = require('../../index')
 
-const SYSLOG_PATH = path.join('syslog.log')
+const SYSLOG_PATH = path.join(__dirname, '../../syslog.log')
 
 var CONFIG = {
   transports: {
@@ -13,7 +15,9 @@ var CONFIG = {
       level: ['debug', 'info', 'notice', 'warning', 'error', 'crit', 'alert', 'emerg'],
       options: {
         path: SYSLOG_PATH,
-        app_name: 'c8-logger'
+        app_name: 'fnord',
+        protocol: 'udp4',
+        port: 514
       }
     }
   }
@@ -27,7 +31,7 @@ describe('Test Syslog Logger', function () {
   })
 
   it('- test debug method', function (done) {
-    logger.emerg('debug')
+    logger.crit('debug')
     done()
   })
 
