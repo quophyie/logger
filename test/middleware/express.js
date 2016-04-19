@@ -22,13 +22,12 @@ const expect = require('code').expect
 
 let server = new Express()
 
-
 describe('Test Express Logger Middleware', function () {
   before(function (done) {
     server.use(middleware.debug)
-    
+
     server.get('/', function (req, res) {
-      res.status(200).json({ name: 'logger' });
+      res.status(200).json({ name: 'logger' })
     })
 
     server.listen(3000, function () {
