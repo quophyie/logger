@@ -2,6 +2,7 @@
 
 var base = require('./lib/transporter')
 var logger = require('./lib/logger')
+var middleware = require('./lib/middleware/index')
 
 module.exports.init = function (config) {
   if (config && !config.transports) {
@@ -26,6 +27,8 @@ module.exports.init = function (config) {
   this._alert = logger.alert(alertTransports)
   this._emerg = logger.emerg(emergTransports)
 }
+
+module.exports.middleware = middleware
 
 module.exports.debug = function (msg) {
   this._debug.debug(msg)
