@@ -15,7 +15,7 @@ Logger.init({
   }
 })
 
-const middleware = Logger.middleware.Express
+const middleware = Logger.middleware.Express(Logger)
 
 const Supertest = require('supertest')
 const expect = require('code').expect
