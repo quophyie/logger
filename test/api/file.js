@@ -1,17 +1,19 @@
 /* eslint-env mocha */
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
-var expect = require('code').expect
-var logger = require('../../index')
+const fs = require('fs')
+const path = require('path')
+const expect = require('code').expect
+
+const Logger = require('../../index')
+const Levels = require('../../lib/levels')
 
 const FILENAME = path.join('file.log')
 
 var CONFIG = {
   transports: {
     file: {
-      level: ['debug', 'info', 'notice', 'warning', 'error', 'crit', 'alert', 'emerg'],
+      level: Levels.toArray(),
       options: {
         filename: FILENAME
       }
@@ -21,7 +23,7 @@ var CONFIG = {
 
 describe('Test File Logger', function () {
   before(function (done) {
-    logger.init(CONFIG)
+    Logger.init(CONFIG)
     done()
   })
   beforeEach(function (done) {
@@ -30,7 +32,7 @@ describe('Test File Logger', function () {
   })
 
   it('- test debug method', function (done) {
-    logger.debug('debug')
+    Logger.debug('debug')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
       expect(data).to.exist()
@@ -41,7 +43,7 @@ describe('Test File Logger', function () {
     })
   })
   it('- test info method', function (done) {
-    logger.info('info')
+    Logger.info('info')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
       expect(data).to.exist()
@@ -52,7 +54,7 @@ describe('Test File Logger', function () {
     })
   })
   it('- test notice method', function (done) {
-    logger.notice('notice')
+    Logger.notice('notice')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
       expect(data).to.exist()
@@ -63,7 +65,7 @@ describe('Test File Logger', function () {
     })
   })
   it('- test warning method', function (done) {
-    logger.warning('warning')
+    Logger.warning('warning')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
       expect(data).to.exist()
@@ -74,7 +76,7 @@ describe('Test File Logger', function () {
     })
   })
   it('- test error method', function (done) {
-    logger.error('error')
+    Logger.error('error')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
       expect(data).to.exist()
@@ -85,7 +87,7 @@ describe('Test File Logger', function () {
     })
   })
   it('- test crit method', function (done) {
-    logger.crit('crit')
+    Logger.crit('crit')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
       expect(data).to.exist()
@@ -96,7 +98,7 @@ describe('Test File Logger', function () {
     })
   })
   it('- test alert method', function (done) {
-    logger.alert('alert')
+    Logger.alert('alert')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
       expect(data).to.exist()
@@ -107,7 +109,7 @@ describe('Test File Logger', function () {
     })
   })
   it('- test emerg method', function (done) {
-    logger.emerg('emerg')
+    Logger.emerg('emerg')
     fs.readFile(FILENAME, 'utf8', function (err, data) {
       expect(err).to.not.exist()
       expect(data).to.exist()

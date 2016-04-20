@@ -1,12 +1,13 @@
 /* eslint-env mocha */
 'use strict'
 
-var logger = require('../../index')
+const Logger = require('../../index')
+const Levels = require('../../lib/levels')
 
-var CONFIG = {
+let CONFIG = {
   transports: {
     console: {
-      level: ['debug', 'info', 'notice', 'warning', 'error', 'crit', 'alert', 'emerg'],
+      level: Levels.toArray(),
       options: {
         silent: true
       }
@@ -16,52 +17,52 @@ var CONFIG = {
 
 describe('Test Console Logger', function () {
   before(function (done) {
-    logger.init(CONFIG)
+    Logger.init(CONFIG)
     done()
   })
 
   it('- test debug method', function (done) {
-    logger.debug('debug')
+    Logger.debug('debug')
     done()
   })
 
   it('- test info method', function (done) {
-    logger.info('info')
+    Logger.info('info')
     done()
   })
 
   it('- test notice method', function (done) {
-    logger.notice('notice')
+    Logger.notice('notice')
     done()
   })
 
   it('- test warning method', function (done) {
-    logger.warning('warning')
+    Logger.warning('warning')
     done()
   })
 
   it('- test error method', function (done) {
-    logger.error('error')
+    Logger.error('error')
     done()
   })
 
   it('- test crit method', function (done) {
-    logger.crit('crit')
+    Logger.crit('crit')
     done()
   })
 
   it('- test alert method', function (done) {
-    logger.alert('alert')
+    Logger.alert('alert')
     done()
   })
 
   it('- test emerg method', function (done) {
-    logger.emerg('emerg')
+    Logger.emerg('emerg')
     done()
   })
 
   it('- test emerg method', function (done) {
-    logger.log('emerg', 'log.emerg')
+    Logger.log('emerg', 'log.emerg')
     done()
   })
 
