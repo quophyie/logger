@@ -3,11 +3,12 @@
 
 const Express = require('express')
 const Logger = require('../../index')
+const Levels = require('../../lib/levels')
 
 Logger.init({
   transports: {
     console: {
-      level: ['debug', 'info', 'notice', 'warning', 'error', 'crit', 'alert', 'emerg'],
+      level: Levels.toArray(),
       options: {
         silent: false
       }
@@ -27,7 +28,7 @@ describe('Test Express Logger Middleware', function () {
     server.use(middleware.debug)
 
     server.get('/', function (req, res) {
-      res.status(200).json({ name: 'logger' })
+      res.status(200).json({ name: 'Logger' })
     })
 
     server.listen(3000, function () {
@@ -35,12 +36,12 @@ describe('Test Express Logger Middleware', function () {
     })
   })
 
-  it('- test info logger', function (done) {
+  it('- test info Logger', function (done) {
     Supertest(server)
       .get('/')
       .end(function (err, res) {
         expect(err).to.not.exist()
-        expect(res.body).to.include({name: 'logger'})
+        expect(res.body).to.include({name: 'Logger'})
         done()
       })
   })

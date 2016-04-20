@@ -1,19 +1,21 @@
 /* eslint-env mocha */
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
-var logger = require('../../index')
+const fs = require('fs')
+const path = require('path')
+
+const Logger = require('../../index')
+const Levels = require('../../lib/levels')
 
 const SYSLOG_PATH = path.join('syslog.log')
 
 var CONFIG = {
   transports: {
     syslog: {
-      level: ['debug', 'info', 'notice', 'warning', 'error', 'crit', 'alert', 'emerg'],
+      level: Levels.toArray(),
       options: {
         path: SYSLOG_PATH,
-        app_name: 'c8-logger'
+        app_name: 'c8-Logger'
       }
     }
   }
@@ -22,12 +24,12 @@ var CONFIG = {
 describe('Test Syslog Logger', function () {
   before(function (done) {
     fs.openSync(SYSLOG_PATH, 'w')
-    logger.init(CONFIG)
+    Logger.init(CONFIG)
     done()
   })
 
   it('- test debug method', function (done) {
-    logger.emerg('debug')
+    Logger.emerg('debug')
     done()
   })
 

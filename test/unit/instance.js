@@ -3,27 +3,28 @@
 
 var expect = require('chai').expect
 
-var logger = require('../../index')
+const Logger = require('../../index')
+const Levels = require('../../lib/levels')
 
 var CONFIG = {
   transports: {
     console: {
-      level: ['info', 'debug']
+      level: [Levels.INFO, Levels.DEBUG]
     }
   }
 }
 
 describe('Test Logger Instance Configuration', function () {
   it('- non existing constructor CONFIG', function (done) {
-    expect(logger.init.bind(logger)).to.not.throw(Error)
+    expect(Logger.init.bind(Logger)).to.not.throw(Error)
     done()
   })
   it('- non existing "transports" CONFIG', function (done) {
-    expect(logger.init.bind(logger, {})).to.throw(Error, 'Logger: No logging transports supplied')
+    expect(Logger.init.bind(Logger, {})).to.throw(Error, 'Logger: No logging transports supplied')
     done()
   })
-  it('- valid logger instance CONFIG', function (done) {
-    expect(logger.init.bind(logger, CONFIG)).to.not.throw(Error)
+  it('- valid Logger instance CONFIG', function (done) {
+    expect(Logger.init.bind(Logger, CONFIG)).to.not.throw(Error)
     done()
   })
 })
