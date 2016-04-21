@@ -57,6 +57,10 @@ describe('Test Express Logger Middleware', function () {
       done()
     })
   })
+  beforeEach(function (done) {
+    fs.openSync(FILENAME, 'w')
+    done()
+  })
 
   it('- test info Logger', function (done) {
     Supertest(server)
