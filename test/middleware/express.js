@@ -8,7 +8,7 @@ const Express = require('express')
 const Logger = require('../../index')
 const Levels = require('../../lib/levels')
 
-const FILENAME = path.join('middleware.log')
+const FILENAME = path.join(__dirname, '../../middleware.log')
 
 Logger.init({
   transports: {
@@ -78,12 +78,20 @@ describe('Test Express Logger Middleware', function () {
       .expect(500)
       .end(function (err, res) {
         expect(err).to.not.exist()
-        done()
+        fs.readFile(FILENAME, 'utf8', (err, data) => {
+          expect(err).to.not.exist()
+          expect(data).to.exist()
+          data = JSON.parse(data)
+          expect(data).to.deep.include({level: 'error'})
+          expect(data.message).to.include('Error: Custom thrown error')
+          done()
+        })
       })
   })
 
   afterEach(function (done) {
-    fs.unlinkSync(FILENAME)
-    done()
+    fs.unlink(FILENAME, () => {
+      done()
+    })
   })
 })
