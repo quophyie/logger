@@ -5,6 +5,7 @@ const path = require('path')
 const fs = require('fs')
 
 const Express = require('express')
+
 const Logger = require('../../index')
 const Levels = require('../../lib/levels')
 
@@ -58,8 +59,9 @@ describe('Test Express Logger Middleware', function () {
     })
   })
   beforeEach(function (done) {
-    fs.openSync(FILENAME, 'w')
-    done()
+    fs.open(FILENAME, 'w', () => {
+      done()
+    })
   })
 
   it('- test info Logger', function (done) {
@@ -72,7 +74,7 @@ describe('Test Express Logger Middleware', function () {
       })
   })
 
-  it.skip('- test error Logger', function (done) {
+  it('- test error Logger', function (done) {
     Supertest(server)
       .get('/throw')
       .expect(500)
