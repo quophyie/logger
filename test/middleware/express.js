@@ -49,10 +49,10 @@ describe('Test Express Logger Middleware', function () {
 
     server.use(middleware.error)
 
-    server.use(function(err, req, res, next) {
+    server.use(function (err, req, res, next) {
       res.status(500).send(err)
     })
-    
+
     server.listen(3000, function () {
       done()
     })
