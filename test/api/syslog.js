@@ -22,18 +22,12 @@ var CONFIG = {
 }
 
 describe.skip('Test Syslog Logger', function () {
-  before(function (done) {
+  before(function () {
     fs.openSync(SYSLOG_PATH, 'w')
     Logger.init(CONFIG)
-    done()
   })
 
-  it('- test debug method', function (done) {
+  it('- test debug method', function () {
     Logger.emerg('debug')
-    done()
-  })
-
-  after(function (done) {
-    done()
   })
 })
