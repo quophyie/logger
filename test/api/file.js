@@ -22,13 +22,11 @@ var CONFIG = {
 }
 
 describe('Test File Logger', function () {
-  before(function (done) {
+  before(function () {
     Logger.init(CONFIG)
-    done()
   })
-  beforeEach(function (done) {
+  beforeEach(function () {
     fs.openSync(FILENAME, 'w')
-    done()
   })
 
   it('- test debug method', function (done) {
@@ -112,8 +110,7 @@ describe('Test File Logger', function () {
     })
   })
 
-  afterEach(function (done) {
+  afterEach(function () {
     fs.unlinkSync(FILENAME)
-    done()
   })
 })

@@ -15,16 +15,13 @@ var CONFIG = {
 }
 
 describe('Test Logger Instance Configuration', function () {
-  it('- non existing constructor CONFIG', function (done) {
+  it('- non existing constructor CONFIG', function () {
     expect(Logger.init.bind(Logger)).to.not.throw(Error)
-    done()
   })
-  it('- non existing "transports" CONFIG', function (done) {
+  it('- non existing "transports" CONFIG', function () {
     expect(Logger.init.bind(Logger, {})).to.throw(Error, 'Logger: No logging transports supplied')
-    done()
   })
-  it('- valid Logger instance CONFIG', function (done) {
+  it('- valid Logger instance CONFIG', function () {
     expect(Logger.init.bind(Logger, CONFIG)).to.not.throw(Error)
-    done()
   })
 })

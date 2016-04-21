@@ -16,57 +16,43 @@ let CONFIG = {
 }
 
 describe('Test Console Logger', function () {
-  before(function (done) {
+  before(function () {
     Logger.init(CONFIG)
-    done()
   })
 
-  it('- test debug method', function (done) {
+  it('- test debug method', function () {
     Logger.debug('debug')
-    done()
   })
 
-  it('- test info method', function (done) {
+  it('- test info method', function () {
     Logger.info('info')
-    done()
   })
 
-  it('- test notice method', function (done) {
+  it('- test notice method', function () {
     Logger.notice('notice')
-    done()
   })
 
-  it('- test warning method', function (done) {
+  it('- test warning method', function () {
     Logger.warning('warning')
-    done()
   })
 
-  it('- test error method', function (done) {
+  it('- test error method', function () {
     Logger.error('error')
-    done()
   })
 
-  it('- test crit method', function (done) {
+  it('- test crit method', function () {
     Logger.crit('crit')
-    done()
   })
 
-  it('- test alert method', function (done) {
+  it('- test alert method', function () {
     Logger.alert('alert')
-    done()
   })
 
-  it('- test emerg method', function (done) {
+  it('- test emerg method', function () {
     Logger.emerg('emerg')
-    done()
   })
 
-  it('- test emerg method', function (done) {
+  it('- test emerg method', function () {
     Logger.log('emerg', 'log.emerg')
-    done()
-  })
-
-  after(function (done) {
-    done()
   })
 })
