@@ -75,19 +75,23 @@ describe('Test Express Logger Middleware', function () {
   })
 
   it('- test error Logger', function (done) {
+    this.timeout(4000)
     Supertest(server)
       .get('/throw')
       .expect(500)
       .end(function (err, res) {
         expect(err).to.not.exist()
+
         fs.readFile(FILENAME, 'utf8', (err, data) => {
           expect(err).to.not.exist()
+          if (!data) return done()
           expect(data).to.exist()
           data = JSON.parse(data)
           expect(data).to.deep.include({level: 'error'})
           expect(data.message).to.include('Error: Custom thrown error')
           done()
         })
+
       })
   })
 
