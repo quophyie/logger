@@ -1,16 +1,27 @@
 /* eslint-env mocha */
 'use strict'
 
+const path = require('path')
+const fs = require('fs')
+
 const Express = require('express')
 const Logger = require('../../index')
 const Levels = require('../../lib/levels')
+
+const FILENAME = path.join('middleware.log')
 
 Logger.init({
   transports: {
     console: {
       level: Levels.toArray(),
       options: {
-        silent: false
+        silent: true
+      }
+    },
+    file: {
+      level: Levels.toArray(),
+      options: {
+        filename: FILENAME
       }
     }
   }
@@ -38,6 +49,10 @@ describe('Test Express Logger Middleware', function () {
 
     server.use(middleware.error)
 
+    server.use(function(err, req, res, next) {
+      res.status(500).send(err)
+    })
+    
     server.listen(3000, function () {
       done()
     })
@@ -61,5 +76,10 @@ describe('Test Express Logger Middleware', function () {
         expect(err).to.not.exist()
         done()
       })
+  })
+
+  afterEach(function (done) {
+    fs.unlinkSync(FILENAME)
+    done()
   })
 })
