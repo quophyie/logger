@@ -20,7 +20,6 @@ const middleware = Logger.middleware.Express(Logger)
 
 const Supertest = require('supertest')
 const expect = require('code').expect
-const chaiExpect = require('chai').expect
 
 let server = new Express()
 
