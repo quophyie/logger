@@ -13,7 +13,7 @@
   "scripts": {
     "coverage": "istanbul cover _mocha --print both && istanbul check-coverage",
     "standard": "standard --verbose",
-    "test": "mocha"
+    "test": "NODE_ENV=test mocha"
   },
   "repository": {
     "type": "git",
