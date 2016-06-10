@@ -9,7 +9,7 @@ let CONFIG = {
     console: {
       level: Levels.toArray(),
       options: {
-        silent: true
+        silent: false
       }
     }
   }
@@ -54,5 +54,29 @@ describe('Test Console Logger', function () {
 
   it('- test emerg method', function () {
     Logger.log('emerg', 'log.emerg')
+  })
+
+  it('- test EvalError', () => {
+    Logger.error('Eval Error Test', new EvalError('My Eval Error'))
+  })
+
+  it('- test SyntaxError', () => {
+    Logger.error('Syntax Error Test', new SyntaxError('My Syntax Error'))
+  })
+
+  it('- test RangeError', () => {
+    Logger.error('Range Error Test', new RangeError('My Range Error'))
+  })
+
+  it('- test ReferenceError', () => {
+    Logger.error('Reference Error Test', new ReferenceError('My Reference Error'))
+  })
+
+  it('- test TypeError', () => {
+    Logger.error('Type Error Test', new TypeError('My Type Error'))
+  })
+
+  it('- test URIError', () => {
+    Logger.error('URI Error Test', new URIError('My URI Error'))
   })
 })

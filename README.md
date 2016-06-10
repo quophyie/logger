@@ -81,6 +81,16 @@ All error logs are pushed using levels `error`, `crit`, `alert`, `emerg` and sho
 server.use(loggerMiddleware.error)
 ```
 
+### Formatting
+Logger has a default log messages formatting. There are 2 different use-cases on how the formatting will look like:
+ 
+#### `logger.debug('log message')`
+ - `{{timestamp}} {{hostname}} {{logLevel}} {{logMessage}}`
+ 
+#### `logger.debug('log message', new Error('My Log Error'))`
+ - `{{timestamp}} {{hostname}} {{errorType}}:{{errorMessage}} {{path:line:column}} {{logLevel}} {{logMessage}}`
+
+
 ## Tests
 
 Run the following commands:
