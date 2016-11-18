@@ -10,6 +10,14 @@ var CONFIG = {
   transports: {
     console: {
       level: [Levels.INFO, Levels.DEBUG]
+    },
+    loggly: {
+        token: 'c627e174-89ef-4743-a949-28616c69c682',
+        domain: 'c8management',
+        env: 'INT',
+        level: 'info',
+        productName: 'logger',
+        serviceName: 'mocha'
     }
   }
 }
